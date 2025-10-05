@@ -16,6 +16,7 @@ using namespace std;
 
 //const for setw()
 const int WIDTH = 5;
+const int WIDTH1 = 8;
 
 class Movie {
 private:
@@ -35,8 +36,7 @@ public:
     //function addFront adds data to head of linked list
     //argument: const string pass by reference
     //return: none
-    void addFront(const string& comment){
-        double rating = (rand() % 41 + 10) / 10.0; //produces 1.0 - 5.0
+    void addFront(const string& comment, double rating){
         MovieNode *newNode = new MovieNode;
         newNode->rating = rating;
         newNode->comment = comment;
@@ -51,15 +51,16 @@ public:
     void loadReview(const string& file){
         string comment;
         int count = 0;
+        double rating = (rand() % 41 + 10) / 10.0; //produces 1.0 - 5.0
         ifstream inputfile(file);
         if (inputfile.good()) {
-            while (getline(inputfile,comment) && count < 3) {
+            while (getline(inputfile,comment)) {
                 if (!comment.empty()) {
-                    addFront(comment);
+                    addFront(comment,rating);
                     count++;
                 }
-                inputfile.close();
             }
+            inputfile.close();
         } else {
             cout << "Error cannot open Input File" << endl;
             return;
@@ -71,11 +72,11 @@ public:
     //return: none
     void output() const{
         cout << "Movie Title: " << title << endl;
-        double total = 0.0;
         MovieNode *current = head; //start of linked list
+        cout << setw(WIDTH) << "" <<"> Rating: " << current->rating << endl;
+        cout << setw(WIDTH) << "" << "> Comments: " << endl;
         while (current) { //loop until nullptr
-            cout << setw(WIDTH) << "" <<"> Rating: " << current->rating << endl;
-            cout << setw(WIDTH) << "" << "Comments: " << current->comment << "\n" << endl;
+            cout << setw(WIDTH1) << "" << current->comment << endl;
             current = current->next;
         }
     }
