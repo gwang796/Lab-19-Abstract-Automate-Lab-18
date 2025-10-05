@@ -70,17 +70,14 @@ public:
     //argument: pointer to head of linked list
     //return: none
     void output() const{
-        cout << "Movie Title: " << endl;
-        int count = 1;
+        cout << "Movie Title: " << title << endl;
         double total = 0.0;
         MovieNode *current = head; //start of linked list
         while (current) { //loop until nullptr
-            cout << setw(WIDTH) << "" <<"> Review #" << count++ << ": " << current->rating << ": " << current->comment << endl;
-            total += (current->rating);
+            cout << setw(WIDTH) << "" <<"> Rating: " << current->rating << endl;
+            cout << setw(WIDTH) << "" << "Comments: " << current->comment << "\n" << endl;
             current = current->next;
         }
-        cout << setw(WIDTH) << "" << "> Average: " << total/(count - 1) << endl;
-        cout << endl;
     }
     
     //function deleteAll deallocates data, resets to nullptr
@@ -99,6 +96,16 @@ public:
 
 
 int main(int argc, const char * argv[]) {
+    srand(time(0));
+    vector<Movie> movie = {Movie("Hunger-Games"), Movie("Dune"), Movie("Titanic"), Movie("End-Game")};
+    movie[0].loadReview("Hunger-Games.txt");
+    movie[1].loadReview("Dune.txt");
+    movie[2].loadReview("Titanic.txt");
+    movie[3].loadReview("End-Game.txt");
     
+    for (auto &val: movie) {
+        val.output();
+    }
+    return 0;
 }
 
