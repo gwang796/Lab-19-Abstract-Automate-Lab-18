@@ -62,7 +62,7 @@ public:
             }
             inputfile.close();
         } else {
-            cout << "Error cannot open Input File" << endl;
+            cout << "Error cannot open Input File " << file << endl;
             return;
         }
     }
@@ -73,6 +73,10 @@ public:
     void output() const{
         cout << "Movie Title: " << title << endl;
         MovieNode *current = head; //start of linked list
+        if (!current) {
+                cout << setw(WIDTH) << "" << "No reviews available." << endl;
+                return;
+            }
         cout << setw(WIDTH) << "" <<"> Rating: " << current->rating << endl;
         cout << setw(WIDTH) << "" << "> Comments: " << endl;
         while (current) { //loop until nullptr
@@ -106,6 +110,7 @@ int main(int argc, const char * argv[]) {
     
     for (auto &val: movie) {
         val.output();
+        cout << endl;
     }
     return 0;
 }
