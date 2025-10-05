@@ -58,7 +58,7 @@ public:
                     addFront(comment);
                     count++;
                 }
-                inputfile.close()
+                inputfile.close();
             }
         } else {
             cout << "Error cannot open Input File" << endl;

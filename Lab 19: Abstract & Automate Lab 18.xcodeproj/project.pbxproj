@@ -20,7 +20,10 @@
 
 /* Begin PBXFileReference section */
 		2EFC94DA2E9315B400505BC3 /* Lab 19: Abstract & Automate Lab 18 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 19: Abstract & Automate Lab 18"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EFC94F32E93234F00505BC3 /* Movie.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Movie.txt; sourceTree = "<group>"; };
+		2EFC94F32E93234F00505BC3 /* Titanic.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Titanic.txt; sourceTree = "<group>"; };
+		2EFC94F42E93252F00505BC3 /* Dune.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dune.txt; sourceTree = "<group>"; };
+		2EFC94F52E93256300505BC3 /* End-Game.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "End-Game.txt"; sourceTree = "<group>"; };
+		2EFC94F62E9325B900505BC3 /* Hunger-Games.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Hunger-Games.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +48,10 @@
 		2EFC94D12E9315B400505BC3 = {
 			isa = PBXGroup;
 			children = (
-				2EFC94F32E93234F00505BC3 /* Movie.txt */,
+				2EFC94F62E9325B900505BC3 /* Hunger-Games.txt */,
+				2EFC94F42E93252F00505BC3 /* Dune.txt */,
+				2EFC94F32E93234F00505BC3 /* Titanic.txt */,
+				2EFC94F52E93256300505BC3 /* End-Game.txt */,
 				2EFC94DC2E9315B400505BC3 /* Lab 19: Abstract & Automate Lab 18 */,
 				2EFC94DB2E9315B400505BC3 /* Products */,
 			);
