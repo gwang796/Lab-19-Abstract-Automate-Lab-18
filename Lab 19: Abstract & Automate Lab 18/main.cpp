@@ -8,35 +8,44 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-// declaring Movie struct with
-struct Movie{
-    double rating;
-    string comment;
-    Movie *next;
-    
-};
+
 //const for setw()
 const int WIDTH = 5;
 
-//function output displays data of linked list Movies
-//argument: pointer to head of linked list
-//return: none
-void output(Movie *);
+class Movie {
+private:
+    string title;
+    // declaring Movie struct with
+    struct MovieNode{
+        double rating;
+        string comment;
+        Movie *next;
+        
+    };
+    MovieNode *head;
+public:
+    Movie(string t) {title = t; head = nullptr;}
+    ~Movie() {deleteAll();}
+    
+    //function output displays data of linked list Movies
+    //argument: pointer to head of linked list
+    //return: none
+    void output(Movie *);
+    
+    //function deleteAll deallocates data, resets to nullptr
+    //argument: reference to head of linked list
+    //return: none
+    void deleteAll(){
+        MovieNode *current = head;
+        while (current) { //loop until nullptr;
+            MovieNode *next = current->next;
+            delete current;
+            current = next;
+        }
+        head = nullptr;
+    }
+};
 
-//function addFront adds data to head of linked list
-//argument: reference to head of linked list, double, string
-//return: none
-void addFront(Movie *&, double, string);
-
-//function addBack adds data of tail of linked list
-//argument: reference to head of linked list, double, string
-//return: none
-void addBack(Movie *&, double, string);
-
-//function deleteAll deallocates data, resets to nullptr
-//argument: reference to head of linked list
-//return: none
-void deleteAll(Movie *&);
 
 int main(int argc, const char * argv[]) {
     Movie *head = nullptr; //pointer to head of linked list
@@ -96,40 +105,4 @@ void output(Movie *head){
     }
     cout << setw(WIDTH) << "" << "> Average: " << total/(count - 1) << endl;
     cout << endl;
-}
-void addFront(Movie *&head, double rating, string comment){
-    Movie *newMovie = new Movie;
-    newMovie->rating = rating;
-    newMovie->comment = comment;
-    if (!head) { //first node
-        newMovie->next = nullptr;
-        head = newMovie;
-    } else { //multiple nodes
-        newMovie->next = head; //link new node to head of linked list
-        head = newMovie;
-    }
-}
-void addBack(Movie *&head, double rating, string comment){
-    Movie *newMovie = new Movie;
-    newMovie->rating = rating;
-    newMovie->comment = comment;
-    newMovie->next = nullptr; //new node will be last
-    if (!head) { //first node
-        head = newMovie;
-    } else{ //multiple nodes
-        Movie *current = head;
-        while (current->next) { //moving to end of linked list
-            current = current->next;
-        }
-        current->next = newMovie; //link new node to end of linked list
-    }
-}
-void deleteAll(Movie *&head){
-    Movie *current = head;
-    while (current) { //loop until nullptr;
-        head = current->next;
-        delete current;
-        current = head;
-    }
-    head = nullptr;
 }
