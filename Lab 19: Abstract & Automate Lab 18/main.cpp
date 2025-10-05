@@ -7,6 +7,11 @@
 
 #include <iostream>
 #include <iomanip>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 //const for setw()
@@ -27,7 +32,30 @@ public:
     Movie(string t) {title = t; head = nullptr;}
     ~Movie() {deleteAll();}
     
+    //function addFront adds data to head of linked list
+    //argument: reference to head of linked list, double, string
+    //return: none
+    void addFront(const string& comment){
+        double rating = (rand() % 41 + 10) / 10; //produces 1.0 - 5.0
+        MovieNode *newNode = new MovieNode;
+        newNode->rating = rating;
+        newNode->comment = comment;
+        newNode->next = head;
+        head = newNode;
+    }
     
+    void loadReview(const string& file){
+        string comment;
+        int count = 0;
+        ifstream infile(file);
+        if (!infile) {
+            cout << "Error: cannot open File" << endl;
+            return;
+        }
+        while (getline()) {
+            <#statements#>
+        }
+    }
     //function output displays data of linked list Movies
     //argument: pointer to head of linked list
     //return: none
