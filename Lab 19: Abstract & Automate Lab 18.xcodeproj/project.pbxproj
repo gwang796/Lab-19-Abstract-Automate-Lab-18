@@ -20,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		2EFC94DA2E9315B400505BC3 /* Lab 19: Abstract & Automate Lab 18 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 19: Abstract & Automate Lab 18"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EFC94F32E93234F00505BC3 /* Movie.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Movie.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +45,7 @@
 		2EFC94D12E9315B400505BC3 = {
 			isa = PBXGroup;
 			children = (
+				2EFC94F32E93234F00505BC3 /* Movie.txt */,
 				2EFC94DC2E9315B400505BC3 /* Lab 19: Abstract & Automate Lab 18 */,
 				2EFC94DB2E9315B400505BC3 /* Products */,
 			);

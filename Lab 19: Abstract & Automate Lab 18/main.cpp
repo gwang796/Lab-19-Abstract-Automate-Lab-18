@@ -33,10 +33,10 @@ public:
     ~Movie() {deleteAll();}
     
     //function addFront adds data to head of linked list
-    //argument: reference to head of linked list, double, string
+    //argument: const string pass by reference
     //return: none
     void addFront(const string& comment){
-        double rating = (rand() % 41 + 10) / 10; //produces 1.0 - 5.0
+        double rating = (rand() % 41 + 10) / 10.0; //produces 1.0 - 5.0
         MovieNode *newNode = new MovieNode;
         newNode->rating = rating;
         newNode->comment = comment;
@@ -44,18 +44,28 @@ public:
         head = newNode;
     }
     
+    //function loadReview access an input file where there are comments that get added to Node of linked list, each is added
+    // as new Node
+    //arguments : const string pass by reference
+    //return : none
     void loadReview(const string& file){
         string comment;
         int count = 0;
-        ifstream infile(file);
-        if (!infile) {
-            cout << "Error: cannot open File" << endl;
+        ifstream inputfile(file);
+        if (inputfile.good()) {
+            while (getline(inputfile,comment) && count < 3) {
+                if (!comment.empty()) {
+                    addFront(comment);
+                    count++;
+                }
+                inputfile.close()
+            }
+        } else {
+            cout << "Error cannot open Input File" << endl;
             return;
         }
-        while (getline()) {
-            <#statements#>
-        }
     }
+    
     //function output displays data of linked list Movies
     //argument: pointer to head of linked list
     //return: none
